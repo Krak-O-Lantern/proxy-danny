@@ -12,15 +12,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/api/listings', (req, res) => {
-  axios.get(`http://ec2-34-208-9-166.us-west-2.compute.amazonaws.com:80${req.url}`)
+app.get('/api/listings/:listing_id', (req, res) => {
+  axios.get(`http://3.138.112.1${req.url}`)
     .then(({ data }) => {
       res.send(data);
     })
     .catch(err => console.log(err));
 });
 app.get('/api/reviews/:listing_id', (req, res) => {
-  axios.get(`http://ec2-18-237-166-117.us-west-2.compute.amazonaws.com:80${req.url}`)
+  axios.get(`http://54.69.92.234${req.url}`)
     .then(({ data }) => {
       console.log('reviews data', data);
       res.send(data);
@@ -28,15 +28,15 @@ app.get('/api/reviews/:listing_id', (req, res) => {
     .catch(err => console.log(err));
 });
 app.get('/api/images/:listing_id', (req, res) => {
-  axios.get(`http://ec2-18-217-241-92.us-west-2.compute.amazonaws.com:80${req.url}`)
+  axios.get(`http://44.232.63.9${req.url}`)
     .then(({ data }) => {
       console.log('images data', data);
       res.send(data);
     })
     .catch(err => console.log(err));
 });
-app.get('/availability/:listing_id', (req, res) => {
-  axios.get(`http://ec2-3-137-149-101-us-west-2.compute.amazonaws.com:80${req.url}`)
+app.get('/api/availability/:listing_id', (req, res) => {
+  axios.get(`http://44.238.144.198${req.url}`)
     .then(({ data }) => {
       console.log('availability data', data);
       res.send(data);
